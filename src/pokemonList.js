@@ -4,11 +4,11 @@ import PokemonItem from './pokemonItem.js';
 class PokemonList extends Component {
     render() {
         return (
-            <ul>
+            <li>
             {this.props.pokemon.map((item) => {
             return <PokemonItem key={item.pokemon} choice={item}/>
         })}
-        </ul>
+        </li>
         ); 
     }
 }
