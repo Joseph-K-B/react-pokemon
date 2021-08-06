@@ -5,7 +5,7 @@ class PokemonList extends Component {
     render() {
         return (
             <li>
-            {this.props.pokemon.map((item) => {
+            {this.props.pokedex.map((item) => {
             return <PokemonItem key={item.pokemon} choice={item}/>
         })}
         </li>

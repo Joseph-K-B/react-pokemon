@@ -28,9 +28,9 @@ class App extends Component {
         {!this.state.loading && (
           <main>
             <section>
-              <imput></imput>
-              <button></button>
-              <PokemonList choice={this.state.data} />
+              <imput onChange={this.queryFeedback} type='text'></imput>
+              <button onClick={this.fetchData}>Play</button>
+              <PokemonList pokedex={this.state.data} />
             </section>
           </main>
         )}
