@@ -4,7 +4,7 @@ import PokemonList from './pokemonList';
 // import Dropdown from './dropdown';
 
 class App extends Component {
-  state = { data:[], loading: true, query: null, sortOrder:'asc'}
+  state = { data:[], loading: true, query: null, sortOrder:'asc', type:[]}
 
   componentDidMount() {
     this.fetchData();
@@ -21,6 +21,9 @@ class App extends Component {
        searchParams.set('sort', 'pokemon');
        searchParams.set('direction', this.state.sortOrder);
      };
+    //  if (this.state.type) {
+    //    searchParams.set('type', this.state.type)
+    //  }
 
      url= url + `?${searchParams.toString()}`;
      console.log(url)
@@ -38,6 +41,9 @@ class App extends Component {
     this.setState({sortOrder: e.target.value})
   };
   
+  // updateType = (e) => {
+  //   this.setState({type: e.target.value})
+  // }
 
   render() {
     //  const order = ('asc, dsc')
@@ -45,12 +51,16 @@ class App extends Component {
     return (
       <>
         <h2>Pokemon! Gotta catch em all!</h2>
-            <section>
+            <section class='input'>
               <div>
               <select onChange={this.updateOrder}>
                 <option value='asc'>Ascending</option>
                 <option value='desc'>Descending</option>
                 </select>
+                {/* <select onChange={this.updateType}>
+                <option value='type'>Electric</option>
+                <option value='type'>Descending</option>
+                </select> */}
               <input onChange={this.queryFeedback} type='text'></input>
               <button onClick={this.fetchData}>Play</button>
                 </div>
