@@ -11,8 +11,8 @@ class App extends Component {
      }
      let feedback = await fetch(url);
      let data = await feedback.json();
-
-     this.setState({ data: data.feedback, loading:false});
+     console.log(data)
+     this.setState({ data: data.results, loading:false});
    };
   componentDidMount() {
     this.fetchData();
