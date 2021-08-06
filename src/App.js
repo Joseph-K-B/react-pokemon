@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import './App.css'
 import PokemonList from './pokemonList';
+// import Dropdown from './dropdown';
 
 class App extends Component {
   state = { data:[], loading: true, query: null}
@@ -21,6 +22,8 @@ class App extends Component {
     this.setState ({ query: e.target.value });
   };
   render() {
+    // const order = ['ascending', 'descending']
+    // const type = []
     return (
       <>
         <h2>Pokemon! Gotta catch em all!</h2>
@@ -28,8 +31,20 @@ class App extends Component {
         {!this.state.loading && (
           <main>
             <section>
-              <imput onChange={this.queryFeedback} type='text'></imput>
+              <div>
+              <input onChange={this.queryFeedback} type='text'></input>
               <button onClick={this.fetchData}>Play</button>
+              {/* <Dropdown
+        label='Order:'
+        choices={order}
+        changeEvent={this.keywordChange}
+        />
+        <Dropdown
+        label='Type:'
+        choices={hornChoices}
+        changeEvent={this.hornChange}
+        /> */}
+        </div>
               <PokemonList pokedex={this.state.data} />
             </section>
           </main>
