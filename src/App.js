@@ -4,7 +4,7 @@ import PokemonList from './pokemonList';
 // import Dropdown from './dropdown';
 
 class App extends Component {
-  state = { data:[], loading: true, query: null, sortOrder:'asc', type:[]}
+  state = { data:[], loading: true, query: null, sortOrder:'asc', type:'pokemon'}
 
   componentDidMount() {
     this.fetchData();
@@ -41,9 +41,9 @@ class App extends Component {
     this.setState({sortOrder: e.target.value})
   };
   
-  // updateType = (e) => {
-  //   this.setState({type: e.target.value})
-  // }
+  updateType = (e) => {
+    this.setState({type: e.target.value})
+  }
 
   render() {
     //  const order = ('asc, dsc')
@@ -57,10 +57,9 @@ class App extends Component {
                 <option value='asc'>Ascending</option>
                 <option value='desc'>Descending</option>
                 </select>
-                {/* <select onChange={this.updateType}>
-                <option value='type'>Electric</option>
-                <option value='type'>Descending</option>
-                </select> */}
+                <select onChange={this.updateType}>
+                <option value='type_1'>X</option>
+                </select>
               <input onChange={this.queryFeedback} type='text'></input>
               <button onClick={this.fetchData}>Play</button>
                 </div>
