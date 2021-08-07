@@ -1,5 +1,5 @@
 html{
-  background-image: radial-gradient(red, white);
+  background-image: radial-gradient(white, red);
 }
 
 h2{
@@ -20,8 +20,9 @@ h2{
   text-align: center;
   padding: 10px;
   color:white;
-  background-color: rgb(92, 78, 78);
+  background-color: rgb(255, 255, 255);
   border-radius: 20%;
+  
 }
 
 .pokemon{
@@ -49,4 +50,8 @@ button{
 }
 img{
   width: 5rem;
+}
+ul{
+  border: black 3px solid;
+  border-radius: 10%;
 }
