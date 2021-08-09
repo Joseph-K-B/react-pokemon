@@ -1,9 +1,9 @@
 import { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css'
-import PokemonList from './pokemonList';
 import PokemonPage from './PokemonPage'
 import Header from './Header.js';
+import Home from './Home.js'
 
 
 class App extends Component {
@@ -14,6 +14,7 @@ class App extends Component {
         <Header />
           <Switch>
             <Route path='/pokemon' component={PokemonPage}></Route>
+            <Route path='/' component={Home} />
           </Switch>
         </BrowserRouter>
       </section>
