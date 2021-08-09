@@ -16,7 +16,6 @@ class PokeInfo extends Component {
     }
 
     render() {
-        console.log(this.props.match)
         const { data } = this.state;
         return(
             <section>

@@ -16,6 +16,10 @@ class PokemonPage extends Component {
         fetchData = async () => {
         let url = 'https://pokedex-alchemy.herokuapp.com/api/pokedex'
         let searchParams = new URLSearchParams();
+            searchParams.set('page', this.state.page);
+        if(!this.state.loading) {
+            this.setState({loading: true});
+        }
     
         if (this.state.query) {
             searchParams.set('pokemon', this.state.query);
@@ -40,6 +44,16 @@ class PokemonPage extends Component {
     this.setState({sortOrder: e.target.value})
     };
 
+    nextPage = async () => {
+        await this.setState ({ page: this.state.page + 1 })
+        this.fetchData();
+    }
+
+    lastPage = async () => {
+        await this.setState ({ page: this.state.page - 1 })
+        this.fetchData();
+    }
+
     pokemonSearch = async () => {
         await this.setState ({ page: 1 })
         this.fetchData();
@@ -52,19 +66,29 @@ class PokemonPage extends Component {
             <section className='input'>
               <div>
               <select onChange={this.updateOrder}>
-                <option value='asc'>Ascending</option>
-                <option value='desc'>Descending</option>
+                    <option value='asc'>Ascending</option>
+                    <option value='desc'>Descending</option>
                 </select>
               <input onChange={this.queryFeedback} type='text'></input>
               <button onClick={this.pokemonSearch}>Play</button>
                 </div>
-                </section>
-                <section>
+            </section>
+            <div>
+                <>
+                    {this.state.page < 40 && (
+                    <button onClick={this.nextPage}>Next</button>
+                    )}
+                    {this.state.page > 1 && (
+                        <button onClick={this.lastPage}>Previous</button>
+                    )}
+                </>
+            </div>
+            <section>
                 {loading && <p>Walking across a busy road staring at phone screen</p>}
                 {!loading && (
-                <PokemonList pokedex={this.state.data} />
-                )}
-                </section>
+                    <PokemonList pokedex={this.state.data} />
+                    )}
+            </section>
         </>
         )
     }
