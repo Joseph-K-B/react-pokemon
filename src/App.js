@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css'
 import PokemonList from './pokemonList';
 import PokemonPage from './PokemonPage'
+import Header from './Header.js';
 
 
 class App extends Component {
@@ -10,6 +11,7 @@ class App extends Component {
     return (
       <section className='app'>
         <BrowserRouter>
+        <Header />
           <Switch>
             <Route path='/pokemon' component={PokemonPage}></Route>
           </Switch>
