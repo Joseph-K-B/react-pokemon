@@ -45,23 +45,23 @@ class PokemonPage extends Component {
         this.fetchData();
     }
     render() {
-        const { loading, feedbackOrder } = this.state;
+        const { loading } = this.state;
         return (
             <>
         <h2>Pokemon! Gotta catch em all!</h2>
-            <section class='input'>
+            <section className='input'>
               <div>
               <select onChange={this.updateOrder}>
                 <option value='asc'>Ascending</option>
                 <option value='desc'>Descending</option>
                 </select>
               <input onChange={this.queryFeedback} type='text'></input>
-              <button onClick={this.fetchData}>Play</button>
+              <button onClick={this.pokemonSearch}>Play</button>
                 </div>
                 </section>
                 <section>
-                {this.state.loading && <p>Walking across a busy road staring at phone screen</p>}
-                {!this.state.loading && (
+                {loading && <p>Walking across a busy road staring at phone screen</p>}
+                {!loading && (
                 <PokemonList pokedex={this.state.data} />
                 )}
                 </section>
