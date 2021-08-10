@@ -9,5 +9,20 @@ header {
 .nav{
     display: flex;
     flex-direction: column;
+    font-size: 1.2rem;
+}
 
+.nav a {
+    color: rgb(243, 0, 0);
+}
+
+.nav a.active,
+.links a:hover {
+    color: rgb(104, 110, 146);
+}
+
+p{
+    display: flex;
+    text-align: center;
+    font-size: 2rem;
 }

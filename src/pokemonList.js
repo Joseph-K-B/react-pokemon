@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import PokemonItem from './pokemonItem.js';
+import './App.css'
 
 class PokemonList extends Component {
     render() {

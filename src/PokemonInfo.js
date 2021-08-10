@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './info.css'
 
 class PokeInfo extends Component {
     state = { data: {} };
@@ -22,6 +23,14 @@ class PokeInfo extends Component {
                 <h1>{ data.pokemon }</h1>
                 <div className='info'>
                     <img src={data.url_image} alt={data.pokemon} />
+                    <ul>
+                        <li>Type: {data.type_1}</li>
+                        <li>Ability: {data.ability_1}</li>
+                        <li>Attack: {data.attack}</li>
+                        <li>Defense: {data.defense}</li>
+                        <li>Height: {data.height}</li>
+                        <li>Weight: {data.weight}</li>
+                    </ul>
                 </div>
             </section>
         );
